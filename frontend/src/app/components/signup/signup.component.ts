@@ -13,8 +13,14 @@ export class SignupComponent implements OnInit {
 
   user = {
     username: '',
-    password: ''
+    password: '',
+    nombre: '',
+    ape1: '',
+    ape2: '',
+    tel: '',
+    direccion: ''
   }
+  
   
   response = '';
   show= false;

@@ -94,6 +94,11 @@ def get_users():
 @app.route('/signup', methods=['POST'])
 def create_user():
     username = request.json['username']
+    name = request.json['nombre']
+    direccion = request.json['direccion']
+    ape1 = request.json['ape1']
+    ape2 = request.json['ape2']
+    tel = request.json['tel']
     user = db1.find_one({'username': username})
     password = request.json['password'].encode()
     if user == None:  
@@ -101,7 +106,7 @@ def create_user():
             hashed_password = hashlib.pbkdf2_hmac(
                 'sha512', password, salt, 100000).hex()
             id = db1.insert_one(
-                {'username': username, 'password': hashed_password}
+                {'username': username, 'password': hashed_password, 'nombre': name, 'direccion': direccion, 'Apellido_paterno':ape1, 'Apellido_materno':ape2,'Telefono':tel}
             )  
             response = {
                 
